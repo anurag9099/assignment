@@ -14,5 +14,8 @@ def filter_key(key, corpus):
     return r
 
 key = str(input("Enter Filter Keyword:\n"))
-
-pprint.pprint(filter_key(key,corpus), width=200)
+result = filter_key(key,corpus)
+if result == []:
+    print("Invalid Keyword!!!")
+else:
+    pprint.pprint(result, width=200)
