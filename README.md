@@ -15,8 +15,14 @@ Steps:
   3. 20% and 40% would be 2 and 4 as an argument of length of summary.
 
 Result: python textSummay.py input.txt 3
+
   ![30% of the summary will be shown](outputSnips/output.PNG)
   
+  
+
+Result: python textSummay.py input.txt 2
+
+  ![30% of the summary will be shown](outputSnips/output1.PNG)
 
 
   
