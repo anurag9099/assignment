@@ -1,5 +1,6 @@
 import re
 import sys
+import pprint
 
 path = sys.argv[1]
 
@@ -12,5 +13,6 @@ def filter_key(key, corpus):
     r = re.findall(pattern, corpus, re.IGNORECASE)
     return r
 
-key = str(input("Enter Filter Keyword:\n"))
-print(filter_key(key, corpus))
+key = str(input("Enter Filter Keyword:\n")
+
+pprint.pprint(filter_key(key,corpus), width=200)
