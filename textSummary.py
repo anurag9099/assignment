@@ -5,6 +5,13 @@ import argparse
 
 
 def getWeightedFrequency(formatted_text):
+    ''' 
+        Args: formatted_text
+        Return: WeightedFrequency
+        Word Frequency calculated by if the word is encountered for the first time, it is added to the dictionary as a key and its value is set to 1.
+                Otherwise, if the word previously exists in the dictionary, its value is simply updated by 1.
+        Word Weighted frequency calculated by divide the number of occurances of all the words by the frequency of the most occurring word.
+    '''
     stopwords = nltk.corpus.stopwords.words('english')
 
     word_frequencies = {}
@@ -23,6 +30,13 @@ def getWeightedFrequency(formatted_text):
     return word_frequencies
 
 def getSentenceScores(word_frequencies, sentences):
+    ''' 
+        Args: word_frequencies, sentences
+        Return: sentence_scores
+        check whether the sentence exists in the sentence_scores dictionary or not.
+        If the sentence doesn't exist, we add it to the sentence_scores dictionary as a key and assign it the weighted frequency of the first word in the sentence,
+        as its value.
+    '''
     n_words = 17*arg
     sentence_scores = {}
     for i, sent in enumerate(sentences):
@@ -36,7 +50,11 @@ def getSentenceScores(word_frequencies, sentences):
     return sentence_scores
 
 def getSummary(sentence_scores):
-    summary_sentences = heapq.nlargest(arg, sentence_scores, key=sentence_scores.get)
+        ''' 
+        Args: sentence_scores
+        Return: summary
+        '''
+    summary_sentences = heapq.nlargest(arg, sentence_scores, key=sentence_scores.get) #get the highest number of sentence_scores
     def sort_pos(val):
         return val.split('#')[1]
     summary_sentences.sort(key=sort_pos)
@@ -45,7 +63,6 @@ def getSummary(sentence_scores):
         s = sent.split('#')[0]
         summary.append(s)
     summary = '\n\t'.join(summary)
-
     return summary
 
 
