@@ -50,11 +50,7 @@ def getSentenceScores(word_frequencies, sentences):
     return sentence_scores
 
 def getSummary(sentence_scores):
-        ''' 
-        Args: sentence_scores
-        Return: summary
-        '''
-    summary_sentences = heapq.nlargest(arg, sentence_scores, key=sentence_scores.get) #get the highest number of sentence_scores
+    summary_sentences = heapq.nlargest(arg, sentence_scores, key=sentence_scores.get) # get the highest number of sentence_scores
     def sort_pos(val):
         return val.split('#')[1]
     summary_sentences.sort(key=sort_pos)
